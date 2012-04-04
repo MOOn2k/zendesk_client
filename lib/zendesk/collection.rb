@@ -12,7 +12,7 @@ module Zendesk
       clear_cache
 
       @client   = client
-      @resource = resource.to_s
+      @resource = resource
       @path     = resource_path(@resource)
       @query    = args.last.is_a?(Hash) ? args.pop : {}
 
@@ -41,12 +41,12 @@ module Zendesk
 
     def create(data={})
       yield data if block_given?
-      request(:post, @query.delete(:path), @query.merge(@resource.to_sym => data))
+      request(:post, @query.delete(:path), @query.merge(@resource => data))
     end
 
     def update(data={})
       yield data if block_given?
-      request(:put, @query.delete(:path), @query.merge(@resource.to_sym => data))
+      request(:put, @query.delete(:path), @query.merge(@resource => data))
     end
 
     def delete(options={})
@@ -77,17 +77,17 @@ module Zendesk
     end
 
     # ghetto but better than requiring ActiveSupport or writing some inflector myself
-    def resource_path(obj)
+    def resource_path(resource)
       {
-        "user"         => "users",
-        "entry"        => "entries",
-        "forum"        => "forums",
-        "group"        => "groups",
-        "organization" => "organizations",
-        "tag"          => "tags",
-        "ticket"       => "tickets",
-        "ticket_field" => "ticket_fields",
-      }[obj]
+        :user         => "users",
+        :entry        => "entries",
+        :forum        => "forums",
+        :group        => "groups",
+        :organization => "organizations",
+        :tag          => "tags",
+        :ticket       => "tickets",
+        :ticket_field => "ticket_fields",
+      }[resource]
     end
 
   end

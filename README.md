@@ -125,7 +125,7 @@ end
 **User Identities**
 
 Users can have multiple identities. When a customer submits a ticket for the first time, their `identity` is based on the channel they submitted the ticket through.
-Supported identites are `email`, `twitter handle`, `facebook account`, `openid`, `google account`.
+Supported identites are `email`, `twitter`, `facebook`, `openid`, `google`.
 
 ```ruby
 @zendesk.users(123).identities.create({:email => "yo@dawg.com"})
@@ -347,36 +347,24 @@ create a new entry for a forum
 **PUT**
 
 ```ruby
-@zendesk.forum(123).entry(2).update(:public => false)     # edit forum entry by id
+@zendesk.forums(123).entry(2).update(:public => false)     # edit forum entry by id
 ```
 
 **DELETE**
 
 ```ruby
-@zendesk.forum_delete(123)
+@zendesk.forums(123).delete
 ```
-
-Search
-------
-
-**GET**
-
-
-**POST**
-
-
-**PUT**
-
-
-**DELETE**
-
-
 
 Ticket Fields
 -------------
 
 **GET**
 
+```ruby
+@zendesk.ticket_fields                                   # all custom ticket_fields in account
+@zendesk.ticket_fields(123)                              # ticket_field with id=123
+```
 
 **POST**
 
@@ -412,6 +400,22 @@ Attachments
 **POST**
 
 **PUT**
+
+**DELETE**
+
+
+
+Search
+------
+
+**GET**
+
+
+**POST**
+
+
+**PUT**
+
 
 **DELETE**
 
