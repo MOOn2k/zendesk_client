@@ -65,7 +65,13 @@ module Zendesk
           request.url(formatted_path(path, format), options)
         when :post, :put
           request.path = formatted_path(path, format)
-          request.body = options unless options.empty?
+
+          if path == 'uploads'
+            request.body = options.delete(:content)
+            request.params = options
+          else
+            request.body = options unless options.empty?
+          end
         end
       end
 
@@ -87,6 +93,7 @@ module Zendesk
         :tag          => "tags",
         :ticket       => "tickets",
         :ticket_field => "ticket_fields",
+        :upload       => 'uploads'
       }[resource]
     end
 
