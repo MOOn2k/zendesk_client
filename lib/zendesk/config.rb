@@ -14,6 +14,7 @@ module Zendesk
       :oauth_token,
       :oauth_token_secret,
       :proxy,
+      :timeout,
       :user_agent
     ].freeze
 
@@ -31,6 +32,9 @@ module Zendesk
     #
     # @note The default faraday adapter is Net::HTTP.
     DEFAULT_ADAPTER = :patron
+
+    # @note The default faraday has timeout 1 s
+    DEFAULT_TIMEOUT = 1
 
     # By default, don't set an application key
     DEFAULT_CONSUMER_KEY = nil
@@ -81,6 +85,7 @@ module Zendesk
       self.oauth_token        = DEFAULT_OAUTH_TOKEN
       self.oauth_token_secret = DEFAULT_OAUTH_TOKEN_SECRET
       self.proxy              = DEFAULT_PROXY
+      self.timeout            = DEFAULT_TIMEOUT
       self.user_agent         = DEFAULT_USER_AGENT
       self.gateway            = DEFAULT_GATEWAY
       self
