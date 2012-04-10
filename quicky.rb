@@ -11,6 +11,7 @@ module Zendesk
         config.request :json
         config.response :logger
         config.adapter :net_http
+        config.timeout :timeout
       end
       @zen.basic_auth email, password
       @zen
