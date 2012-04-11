@@ -93,6 +93,7 @@ module Zendesk
         :tag          => "tags",
         :ticket       => "tickets",
         :ticket_field => "ticket_fields",
+        "search"      => "search",
         :upload       => 'uploads'
       }[resource]
     end
