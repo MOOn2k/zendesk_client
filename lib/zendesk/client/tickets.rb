@@ -19,9 +19,15 @@ module Zendesk
         self
       end
 
+      def post(path, options={})
+        create_files(options) if options[:attachments]
+        super(path, options)
+      end
+
       def create(data={})
+        yield data if block_given?
         create_files(data) if data[:attachments]
-        super(data)
+        request(:post, @query.delete(:path), @query.merge(@resource => data))
       end
 
       # TODO: @zendesk.ticket(123).public_comment({ ... })
