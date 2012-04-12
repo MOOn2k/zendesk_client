@@ -19,6 +19,8 @@ module Zendesk
         :url => client.account
       }
 
+      options[:headers]['X-On-Behalf-Of'] = client.on_behalf_of if client.on_behalf_of
+
       conn = Faraday::Connection.new(options) do |builder|
         # As with Rack, order matters. Be mindful.
         # TODO: builder.use Zendesk::Request::MultipartWithFile
