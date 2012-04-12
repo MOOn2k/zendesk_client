@@ -177,7 +177,8 @@ A successful POST will return the created ticket in the response body along with
 @zendesk.tickets.create({:description => "phone fell into the toilet",
                         :requester_id => 123,
                         :priority => 4,
-                        :set_tags => ["phone", "toilet"]})
+                        :set_tags => ["phone", "toilet"],
+                        :attachments => ["doc.pdf", "sample.txt"]})
 
 # create ticket with block
 @zendesk.tickets.create do |ticket|
@@ -186,6 +187,7 @@ A successful POST will return the created ticket in the response body along with
   ticket[:requester_email] = "snoop@dogg.com",
   ticket[:priority] = 4,
   ticket[:set_tags] = ["phone", "toilet"]
+  ticket[:attachments] = ["doc.pdf", "sample.txt"]
 end
 ```
 
@@ -395,15 +397,21 @@ Macros
 Attachments
 -----------
 
-**GET**
+Zendesk API allow only creating attachments.
 
 **POST**
 
-**PUT**
+```ruby
+# create an attachment from a hash
+@zendesk.attachments.create({:filename => 'sample file',
+                             :token => 'foo123'})
 
-**DELETE**
-
-
+# create an attachment with a block
+@zendesk.attachments.create do |attachment|
+  attachment.filename = 'sample file'
+  attachment.token = 'foo123'
+end
+```
 
 Search
 ------
