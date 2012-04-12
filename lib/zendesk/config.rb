@@ -13,6 +13,7 @@ module Zendesk
       :gateway,
       :oauth_token,
       :oauth_token_secret,
+      :on_behalf_of,
       :proxy,
       :timeout,
       :user_agent
@@ -88,6 +89,7 @@ module Zendesk
       self.timeout            = DEFAULT_TIMEOUT
       self.user_agent         = DEFAULT_USER_AGENT
       self.gateway            = DEFAULT_GATEWAY
+      self.on_behalf_of       = nil
       self
     end
   end
