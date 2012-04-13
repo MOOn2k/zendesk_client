@@ -5,8 +5,8 @@ module Zendesk
   #
   # @note All methods have been separated into modules and follow the same grouping used in {the Zendesk API Documentation}.  
   class Client < API
-  
-    attr :last_response
+          
+    attr_accessor :last_response
     # Require client method modules after initializing the Client class in
     # order to avoid a superclass mismatch error, allowing those modules to be
     # Client-namespaced.
