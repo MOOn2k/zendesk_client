@@ -17,7 +17,7 @@ module Zendesk
         :proxy => client.proxy,
         :ssl => {:verify => false},
         :url => client.account,
-        :timeout => 5,  
+        :timeout => 10,  
         :open_timeout => 2,   
       }
 
