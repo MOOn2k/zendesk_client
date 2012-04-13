@@ -75,6 +75,8 @@ module Zendesk
         end
       end
 
+      @client.last_response = resopnse
+      
       response.body
     end
 
