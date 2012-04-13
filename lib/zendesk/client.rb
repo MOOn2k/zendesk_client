@@ -3,8 +3,10 @@ require "zendesk/collection"
 module Zendesk
   # Wrapper for the Zendesk REST API
   #
-  # @note All methods have been separated into modules and follow the same grouping used in {the Zendesk API Documentation}.
+  # @note All methods have been separated into modules and follow the same grouping used in {the Zendesk API Documentation}.  
   class Client < API
+  
+    attr :last_reponse
     # Require client method modules after initializing the Client class in
     # order to avoid a superclass mismatch error, allowing those modules to be
     # Client-namespaced.
