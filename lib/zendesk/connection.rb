@@ -16,7 +16,9 @@ module Zendesk
         },
         :proxy => client.proxy,
         :ssl => {:verify => false},
-        :url => client.account
+        :url => client.account,
+        :timeout => 5,  
+        :open_timeout => 2,   
       }
 
       options[:headers]['X-On-Behalf-Of'] = client.on_behalf_of if client.on_behalf_of
