@@ -1,4 +1,4 @@
-module ZenDesk
+module Zendesk
   class Request::Retry < Faraday::Middleware
     def initialize(app, retries = 2)
       @retries = retries
