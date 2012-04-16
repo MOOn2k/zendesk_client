@@ -32,7 +32,7 @@ module Zendesk
     # The adapter that will be used to connect if none is set
     #
     # @note The default faraday adapter is Net::HTTP.
-    DEFAULT_ADAPTER = :patron
+    DEFAULT_ADAPTER = :net_http
 
     # @note The default faraday has timeout 1 s
     DEFAULT_TIMEOUT = 1

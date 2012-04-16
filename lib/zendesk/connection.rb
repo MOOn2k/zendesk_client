@@ -29,7 +29,11 @@ module Zendesk
         # TODO: builder.use Faraday::Request::OAuth, authentication if authenticated?
         builder.use Faraday::Request::Multipart
         builder.use Faraday::Request::UrlEncoded
+        builder.use Zendesk::Request::Retry
+
         builder.use Zendesk::Response::RaiseHttp4xx
+        builder.use Faraday::Response::RaiseError
+
         builder.use Faraday::Response::Mashify
         case client.format.to_sym
         when :json
