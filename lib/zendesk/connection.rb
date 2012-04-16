@@ -1,5 +1,6 @@
 require "faraday"
 require "faraday_middleware"
+require "zendesk/request/retry"
 require "zendesk/response/logger"
 require "zendesk/response/raise_http_4xx"
 
