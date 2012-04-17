@@ -32,8 +32,7 @@ module Zendesk
         builder.use Faraday::Request::UrlEncoded
         builder.use Zendesk::Request::Retry
 
-        builder.use Zendesk::Response::RaiseHttp4xx
-        builder.use Faraday::Response::RaiseError
+        builder.use Zendesk::Response::RaiseHttp4xx        
 
         builder.use Faraday::Response::Mashify
         case client.format.to_sym
