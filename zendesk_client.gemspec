@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "minitest"
   gem.add_development_dependency "pry"
 
-  gem.add_runtime_dependency "hashie", "~> 1.0.0"
+  gem.add_runtime_dependency "hashie", "~> 1.2.0"
   gem.add_runtime_dependency "faraday", "~> 0.7.3"
   gem.add_runtime_dependency "faraday_middleware", "0.7.0"
   gem.add_runtime_dependency "multi_xml", "~> 0.2.0"
